@@ -5,9 +5,11 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Compile
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v2
+      - name: Compilar
         run: csc /target:winexe /out:DominantExecutor.exe executor.cs
-      - name: Upload
+      - name: Subir
         uses: actions/upload-artifact@v4
         with:
           name: Dominant-App
