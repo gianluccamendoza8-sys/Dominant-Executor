@@ -5,10 +5,10 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Instalar Herramientas
-        uses: microsoft/setup-msbuild@v2
       - name: Compilar
-        run: csc /target:winexe /out:DominantExecutor.exe executor.cs
+        run: |
+          $csc = Get-ChildItem -Path "C:\Windows\Microsoft.NET\Framework" -Filter "csc.exe" -Recurse | Select-Object -First 1 -ExpandProperty FullName
+          & $csc /target:winexe /out:DominantExecutor.exe executor.cs
       - name: Subir
         uses: actions/upload-artifact@v4
         with:
