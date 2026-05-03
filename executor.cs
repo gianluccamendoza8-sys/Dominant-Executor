@@ -1,9 +1,6 @@
 using System;
-using System.Windows.Forms;
-
-public class Program {
-    [STAThread]
+class Program {
     static void Main() {
-        MessageBox.Show("SECRET EXECUTOR");
+        Console.WriteLine("Dominant Executor Listo");
     }
 }
