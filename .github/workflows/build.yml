@@ -5,11 +5,9 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup MSBuild
-        uses: microsoft/setup-msbuild@v1
-      - name: Compile EXE
-        run: csc /target:winexe /out:DominantExecutor.exe Ejecutor.cs
-      - name: Upload Result
+      - name: Compile
+        run: csc /target:winexe /out:DominantExecutor.exe Executor.cs
+      - name: Upload
         uses: actions/upload-artifact@v4
         with:
           name: Dominant-App
